@@ -10,7 +10,7 @@ import { GraphQLModule } from '@nestjs/graphql';
     GraphQLModule.forRoot<MercuriusGatewayDriverConfig>({
       graphiql: true,
       driver: MercuriusGatewayDriver,
-      federationMetadata: true,
+
       gateway: {
         services: [
           { name: 'users', url: 'http://localhost:3002/graphql' },

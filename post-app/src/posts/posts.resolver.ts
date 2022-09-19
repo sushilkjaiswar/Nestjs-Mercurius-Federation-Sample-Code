@@ -24,12 +24,9 @@ export class PostsResolver {
     return this.postsService.findAll();
   }
 
-  @ResolveReference()
-  resolveReference(reference: { __typename: string; id: number }) {
-    return this.postsService.findOne(reference.id);
+  @ResolveField('user')
+  getUser(@Parent() post: Post) {
+    console.log('Post', post);
+    return { __typename: 'User', id: post.authorId };
   }
-  //   @ResolveField('user')
-  //   user(@Parent() post: Post): any {
-  //     return { __typename: 'User', id: post.authorId };
-  //   }
 }

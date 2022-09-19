@@ -1,9 +1,15 @@
-extend type Query {
-  getPosts: [Post]
-}
-
 type Post @key(fields: "id") {
   id: ID!
-  title: String
-  content: String
+  title: String!
+  body: String!
+  user: User
+}
+
+extend type User @key(fields: "id") {
+  id: ID! @external
+  name: String! @external
+}
+
+extend type Query {
+  getPosts: [Post]
 }

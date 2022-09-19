@@ -14,6 +14,8 @@ import { PostsService } from './posts.service';
     GraphQLModule.forRoot<MercuriusFederationDriverConfig>({
       driver: MercuriusFederationDriver,
       typePaths: ['**/*.graphql'],
+      federationMetadata: true,
+      graphiql: true,
     }),
   ],
   providers: [PostsService, PostsResolver],

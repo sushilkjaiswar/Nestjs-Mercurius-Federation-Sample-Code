@@ -12,6 +12,8 @@ import { UsersService } from './users.service';
     GraphQLModule.forRoot<MercuriusFederationDriverConfig>({
       driver: MercuriusFederationDriver,
       typePaths: ['**/*.graphql'],
+      federationMetadata: true,
+      graphiql: true,
     }),
   ],
   providers: [UsersService, UsersResolver],
